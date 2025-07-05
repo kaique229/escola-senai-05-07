@@ -1,1 +1,2 @@
-# Projeto Java Escola Senai
+# 🎒 :school_satchel: Projeto Java Escola Senai
+
