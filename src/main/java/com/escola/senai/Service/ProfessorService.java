@@ -1,6 +1,5 @@
 package com.escola.senai.Service;
 
-import com.escola.senai.Interface.AlunoRepository;
 import com.escola.senai.Interface.ProfessorRepository;
 import com.escola.senai.Model.Professor;
 import org.springframework.stereotype.Service;

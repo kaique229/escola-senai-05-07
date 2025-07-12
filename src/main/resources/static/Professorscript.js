@@ -96,3 +96,37 @@ function salvarEdicaoProfessor() {
       alert('Erro ao atualizar professor.');
     });
 }
+
+
+
+
+
+function cadastrarProfessor(event) {
+  event.preventDefault(); // Impede o reload do form
+
+  const nome = document.getElementById('prof-nome').value;
+  const email = document.getElementById('prof-email').value;
+  const telefone = document.getElementById('prof-telefone').value;
+
+  fetch('http://localhost:8080/professor', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ nome, email, telefone })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao cadastrar professor.');
+      }
+      return response.json();
+    })
+    .then(novoProfessor => {
+      adicionarLinhaProfessor(novoProfessor); // Atualiza a tabela
+      document.getElementById('form-cadastro-professor').reset(); // Limpa o form
+    })
+    .catch(error => {
+      console.error('Erro ao cadastrar professor:', error);
+      alert('Erro ao cadastrar professor.');
+    });
+}

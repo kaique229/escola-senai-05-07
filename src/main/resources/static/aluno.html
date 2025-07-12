@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     integrity="sha512-yZgQY+Rl0TQjXt3xpsRm69ugfv0DKTwuwXrYhnqx3pZC6NvmZ+uO5lEddtT5ohNMEcYBaEpnnp4IWB4zC+9qNw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="estilo.css">
 
 
 </head>
@@ -44,6 +44,9 @@
             <li class="nav-item">
               <a class="nav-link" href="./professor.html">Professor</a>
             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="./escola.html">Escola</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -51,35 +54,71 @@
   </div>
 
 
-  <div class="container">
-    <h1>Alunos Cadastrados</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Telefone</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody id="alunos-tbody">
-        <!-- Alunos preenchidos dinamicamente -->
-      </tbody>
-    </table>
+<div id="cadastro">
+    <h2 id="titulo">Cadastrar Novo Aluno</h2>
+<form id="form-cadastro" onsubmit="cadastrarAluno(event)">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" required />
   </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" required />
+  </div>
+  <div class="mb-3">
+    <label for="telefone" class="form-label">Telefone</label>
+    <input type="text" class="form-control" id="telefone" required />
+  </div>
+  <button type="submit" class="btn btn-primary" >Cadastrar</button>
+</form>
+<hr />
 
-  <!-- Modal de edição -->
+
+
+
+
+<div class="container">
+  <h1>Alunos Cadastrados</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="alunos-tbody">
+      <!-- Alunos preenchidos dinamicamente -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal de edição -->
+<div id="mo">
   <div id="editModal"
-    style="display:none; position: fixed; top: 20%; left: 30%; background: white; border: 1px solid #ccc; padding: 20px;">
-    <h2>Editar Aluno</h2>
-    <input type="hidden" id="edit-id" />
-    <label>Nome: <input type="text" id="edit-nome"></label><br>
-    <label>Email: <input type="email" id="edit-email"></label><br>
-    <label>Telefone: <input type="text" id="edit-telefone"></label><br><br>
-    <button onclick="salvarEdicao()">Salvar</button>
-    <button onclick="fecharModal()">Cancelar</button>
-  </div>
+  
+  style="display:none; position: fixed; top: 20%; left: 40%; border: 1px solid #000000; padding: 30px; text-align: center; background-color:  #a1ffff; border-radius: 10px; " >
+  
+  <h2>Editar Aluno</h2>
+  <input type="hidden" id="edit-id" />
+  <label>Nome: <input type="text" id="edit-nome" class="inpu" placeholder="Nome:"></label><br><br>
+  <label>Email:  <input type="email" id="edit-email" class="inpu" placeholder="Email:"></label><br><br>
+  <label>Telefone: <input type="text" id="edit-telefone" class="inpu" placeholder="Numero:"></label><br><br>
+  <button onclick="salvarEdicao()" style="border-radius: 10px; background-color: rgb(42, 83, 247); border: none;">Salvar</button>
+  <button onclick="fecharModal()" style="border-radius: 10px; background-color:  rgb(42, 83, 247); border: none;">Cancelar</button>
+</div>
+</div>
 
+
+</div>
+
+
+
+
+
+
+  
 
 
 

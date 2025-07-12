@@ -17,36 +17,37 @@ public class ProfessorController {
 
 
     @GetMapping
-    public List<Professor> buscarAluno(){
+    public List<Professor> buscarProfessor(){
         return service.listaTodos();
     }
 
     @PostMapping
-    public Professor salvarNovoAluno(@RequestBody Professor aluno){
-        return service.salvar(aluno);
+    public Professor salvarNovoProfessor(@RequestBody Professor professor){
+        return service.salvar(professor);
     }
 
     @GetMapping("/{id}")
-    public Professor buscarAlunoId(@PathVariable Long id){
+    public Professor buscarProfessorId(@PathVariable Long id){
         return service.buscarPorId(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deletarAluno(@PathVariable Long id){
+    public void deletarprofessor(@PathVariable Long id){
         service.excluirProfessor(id);
     }
 
 
     @PutMapping("/{id}")
-    public Professor atualizaAluno(@PathVariable Long id, @RequestBody Professor alunoAtualizado){
-        Professor existeAluno = service.buscarPorId(id);
+    public Professor atualizaProfessor(@PathVariable Long id, @RequestBody Professor professorAtualizado){
+        Professor existeProfessor = service.buscarPorId(id);
 
-        if (existeAluno == null) return null;
-        existeAluno.setNome(alunoAtualizado.getNome());
-        existeAluno.setEmail(alunoAtualizado.getEmail());
-        existeAluno.setTelefone(alunoAtualizado.getTelefone());
+        if (existeProfessor == null) return null;
+        existeProfessor.setNome(professorAtualizado.getNome());
+        existeProfessor.setEmail(professorAtualizado.getEmail());
+        existeProfessor.setTelefone(professorAtualizado.getTelefone());
 
-        return  service.salvar(existeAluno);
+        return  service.salvar(existeProfessor);
     }
 
 }
+

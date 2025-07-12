@@ -128,3 +128,28 @@ td {
     font-size: 2rem;
   }
 }
+
+
+#cadastro{
+  width: 1000px;
+  background-color: #a1ffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-left: 10%;
+  margin-top: 20px;
+ display: flex;
+text-align: center;
+flex-direction: column;
+
+  
+}
+
+
+
+
+.inpu{
+  border-radius: 10px;
+  border: none;
+
+}
+

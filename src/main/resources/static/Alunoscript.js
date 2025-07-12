@@ -101,4 +101,37 @@ function salvarEdicao() {
 
 
 
+function cadastrarAluno(event) {
+  event.preventDefault(); // Impede o reload do form
+
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const telefone = document.getElementById('telefone').value;
+
+  fetch('http://localhost:8080/alunos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ nome, email, telefone })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao cadastrar aluno.');
+      }
+      return response.json(); // Espera o objeto criado (com ID)
+    })
+    .then(novoAluno => {
+      adicionarLinhaAluno(novoAluno); // Atualiza tabela
+      document.getElementById('form-cadastro').reset(); // Limpa form
+    })
+    .catch(error => {
+      console.error('Erro ao cadastrar aluno:', error);
+      alert('Erro ao cadastrar aluno.');
+    });
+}
+
+
+
+
 
